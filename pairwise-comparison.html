@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pairwise Comparison</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <section id="app" class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <div class="field has-addons">
+            <div class="control">
+              <input class="input" type="text" placeholder="New item" v-model="newItemValue" @keyup.enter="addItem">
+            </div>
+            <div class="control">
+              <a class="button is-primary" @click="addItem">Add</a>
+            </div>
+          </div>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Score</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in sortedItems">
+                <th>{{ item.value }}</th>
+                <td>{{ item.score }}</td>
+                <td><span class="tag is-success" v-if="winners.includes(item)">Winner</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="column">
+          <p class="title is-3">Compare items</p>
+
+          <div class="field is-grouped is-grouped" v-for="pair in pairs">
+            <p class="control">
+              <a class="button" :class="{ 'is-primary': pair.isItem1Winner() }" :disabled="pair.voted"
+                @click="pair.voteForItem1()">
+                {{ pair.item1.value }}
+              </a>
+            </p>
+            <p class="control">
+              <a class="button" :class="{ 'is-primary': pair.isItem2Winner() }" :disabled="pair.voted"
+                @click="pair.voteForItem2()">
+                {{ pair.item2.value }}
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="pairwise-comparison.js"></script>
+  <script src="pairwise-comparison-vue.js"></script>
+</body>
+
+</html>

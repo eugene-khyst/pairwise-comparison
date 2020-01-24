@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image Pairwise Comparison</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+  <style>
+    img {
+      image-orientation: from-image;
+    }
+
+    .compared-image, .rated-image {
+      text-align: center;
+    }
+
+    .compared-image img, .rated-image img {
+      max-height: 30rem;
+      width: auto;
+    }
+
+    .compared-image img {
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    #compared-images:hover .compared-image img {
+      opacity: 0.5;
+      transform: scale(0.8);
+    }
+
+    #compared-images:hover .compared-image:hover img {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <section id="app" class="section">
+    <div class="container">
+      <div class="field">
+        <div class="file is-centered is-boxed has-name">
+          <label class="file-label">
+            <input id="filechooser" class="file-input" type="file" multiple>
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fas fa-upload"></i>
+              </span>
+              <span class="file-label">
+                Choose images…
+              </span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div v-if="nextNotVotedPair != null">
+        <p class="title is-3 has-text-centered">Compare images</p>
+        <div id="compared-images" class="columns is-vcentered">
+          <div class="column compared-image">
+            <a @click="nextNotVotedPair.voteForItem1()">
+              <img :src="nextNotVotedPair.item1.value">
+            </a>
+          </div>
+          <div class="column compared-image">
+            <a @click="nextNotVotedPair.voteForItem2()">
+              <img :src="nextNotVotedPair.item2.value">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="allPairsVoted">
+        <div class="rated-image" v-for="(item, index) in sortedItems">
+          <p class="title is-3 has-text-centered">#{{ index + 1 }}</p>
+          <img :src="item.value">
+          <hr>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="pairwise-comparison.js"></script>
+  <script src="image-pairwise-comparison-vue.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solution Comparison</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <section id="app" class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <div class="field has-addons">
+            <div class="control">
+              <input class="input" type="text" placeholder="New requirement" v-model="newRequirementValue"
+                @keyup.enter="addRequirement">
+            </div>
+            <div class="control">
+              <a class="button is-primary" @click="addRequirement">Add</a>
+            </div>
+          </div>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Requirement</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="requirement in sortedRequirements">
+                <th>{{ requirement.value }}</th>
+                <td>{{ requirement.score }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="column">
+          <div class="field has-addons">
+            <div class="control">
+              <input class="input" type="text" placeholder="New solution" v-model="newSolutionValue"
+                @keyup.enter="addSolution">
+            </div>
+            <div class="control">
+              <a class="button is-primary" @click="addSolution">Add</a>
+            </div>
+          </div>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Solution</th>
+                <th>Score</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="solution in sortedSolutions">
+                <th>{{ solution.value }}</th>
+                <td>{{ solution.score }}</td>
+                <td><span class="tag is-success" v-if="winners.includes(solution)">Winner</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column">
+          <p class="title is-3">Compare requirements</p>
+
+          <div class="field is-grouped is-grouped" v-for="pair in requirementPairs">
+            <p class="control">
+              <a class="button" :class="{ 'is-primary': pair.isItem1Winner() }" :disabled="pair.voted"
+                @click="pair.voteForItem1()">
+                {{ pair.item1.value }}
+              </a>
+            </p>
+            <p class="control">
+              <a class="button" :class="{ 'is-primary': pair.isItem2Winner() }" :disabled="pair.voted"
+                @click="pair.voteForItem2()">
+                {{ pair.item2.value }}
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <div class="column">
+          <p class="title is-3">Evaluate solutions</p>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th></th>
+                <th v-for="solution in solutions">{{ solution.value }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="requirement in requirements">
+                <th>{{ requirement.value }}</th> 
+                <td v-for="solution in solutions">
+                  <input type="checkbox" @change="evaluateSolution($event, solution, requirement)">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="pairwise-comparison.js"></script>
+  <script src="solution-pairwise-comparison-vue.js"></script>
+</body>
+
+</html>
