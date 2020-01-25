@@ -5,37 +5,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Image Pairwise Comparison</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-  <style>
-    img {
-      image-orientation: from-image;
-    }
-
-    .compared-image, .rated-image {
-      text-align: center;
-    }
-
-    .compared-image img, .rated-image img {
-      max-height: 30rem;
-      width: auto;
-    }
-
-    .compared-image img {
-      transition: opacity 0.5s, transform 0.5s;
-    }
-
-    #compared-images:hover .compared-image img {
-      opacity: 0.5;
-      transform: scale(0.8);
-    }
-
-    #compared-images:hover .compared-image:hover img {
-      opacity: 1;
-      transform: none;
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+  <link rel="stylesheet" href="image-pairwise-comparison.css">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
 </head>
 
 <body>
