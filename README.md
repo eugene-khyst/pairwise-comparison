@@ -14,12 +14,16 @@ Values for pairs below the diagonal line can be calculated by simply inverting t
 
 Finally, sum all the values in the row to get a score of the option.
 
+Example 1:
+
 |   | **A** | **B** | **C** | **D** | **Score** |
 |---|---|---|---|---|---|
 | **A** | - | 1 | 1 | 1 | **3** |
 | **B** | 0 | - | 1 | 1 | **2** |
 | **C** | 0 | 0 | - | 1 | **1** |
 | **D** | 0 | 0 | 0 | - | **0** |
+
+Example 2:
 
 |   | **A** | **B** | **C** | **D** | **Score** |
 |---|---|---|---|---|---|
