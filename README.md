@@ -1,4 +1,4 @@
-# The Pairwise Comparison Method
+# Pairwise Comparison Method
 
 Pairwise comparison (or paired comparison) is a process of comparing entities in pairs to judge which of each entity is preferred.
 
