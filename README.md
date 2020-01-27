@@ -36,17 +36,17 @@ Example 2:
 
 The pairwise comparison method can be implemented as an interactive web application.
 
-![Pairwise comparison demo](pairwise-comparison.gif)
-
 https://evgeniy-khist.github.io/pairwise-comparison/pairwise-comparison.html
+
+![Pairwise comparison demo](pairwise-comparison.gif)
 
 ## Image pairwise comparison
 
 The pairwise comparison method can also be used for choosing the best image or photo.
 
-![Image pairwise comparison](image-pairwise-comparison.gif)
-
 https://evgeniy-khist.github.io/pairwise-comparison/image-pairwise-comparison.html
+
+![Image pairwise comparison](image-pairwise-comparison.gif)
 
 ## Solution comparison
 
@@ -55,6 +55,6 @@ Instead, prepare a set of requirements that the solution should satisfy,
 prioritize the requirements using pairwise comparison method, 
 and choose the solution that best meets the requirements.
 
-![Solution comparison](solution-comparison.gif)
-
 https://evgeniy-khist.github.io/pairwise-comparison/solution-comparison.html
+
+![Solution comparison](solution-comparison.gif)
