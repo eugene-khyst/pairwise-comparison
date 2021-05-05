@@ -26,3 +26,19 @@ img {
   opacity: 1;
   transform: none;
 }
+
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.center th,
+table.center td {
+  text-align: center !important;
+  vertical-align: middle;
+}
+
+img.thumbnail {
+  max-width: 128px;
+  max-height: 128px;
+}

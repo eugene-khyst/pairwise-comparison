@@ -30,18 +30,23 @@ const app = new Vue({
 });
 
 const filechooser = document.querySelector('#filechooser');
-let urls = [];
+let images = [];
 
 filechooser.onchange = function () {
-  urls.forEach(URL.revokeObjectURL);
+  images.forEach(URL.revokeObjectURL);
 
-  urls = Array.from(filechooser.files)
+  images = Array.from(filechooser.files)
     .filter(file => /image\/.*/.test(file.type))
-    .map(file => URL.createObjectURL(file));
+    .map(file => {
+      return {
+        filename: file.name,
+        url: URL.createObjectURL(file)
+      };
+    });
 
   app.pairs = [];
   app.items = [];
-  for (const url of urls) {
-    app.addItem(url);
+  for (const image of images) {
+    app.addItem(image);
   }
 }

@@ -71,21 +71,42 @@
         <div id="compared-images" class="columns is-vcentered">
           <div class="column compared-image">
             <a @click="nextNotVotedPair.voteForItem1()">
-              <img :src="nextNotVotedPair.item1.value">
+              <img :src="nextNotVotedPair.item1.value.url" :title="nextNotVotedPair.item1.value.filename">
             </a>
           </div>
           <div class="column compared-image">
             <a @click="nextNotVotedPair.voteForItem2()">
-              <img :src="nextNotVotedPair.item2.value">
+              <img :src="nextNotVotedPair.item2.value.url" :title="nextNotVotedPair.item2.value.filename">
             </a>
           </div>
         </div>
       </div>
 
       <div v-if="allPairsVoted">
+        <table class="table is-bordered is-striped is-hoverable center">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Filename</th>
+              <th>Rank</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item, index) in sortedItems">
+              <td>
+                <img :src="item.value.url" :title="item.value.filename" class="thumbnail">
+              </td>
+              <td>{{ item.value.filename }}</td>
+              <td>{{ index + 1 }}</td>
+              <td>{{ item.score }}</td>
+            </tr>
+          </tbody>
+        </table>
+
         <div class="rated-image" v-for="(item, index) in sortedItems">
           <p class="title is-3 has-text-centered">#{{ index + 1 }}</p>
-          <img :src="item.value">
+          <img :src="item.value.url" :title="item.value.filename">
           <hr>
         </div>
       </div>
