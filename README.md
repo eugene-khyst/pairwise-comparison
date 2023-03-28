@@ -36,7 +36,7 @@ Example 2:
 
 The pairwise comparison method can be implemented as an interactive web application.
 
-https://evgeniy-khist.github.io/pairwise-comparison/pairwise-comparison.html
+[https://evgeniy-khist.github.io/pairwise-comparison/pairwise-comparison.html](https://evgeniy-khist.github.io/pairwise-comparison/pairwise-comparison.html)
 
 ![Pairwise comparison demo](pairwise-comparison.gif)
 
@@ -44,7 +44,7 @@ https://evgeniy-khist.github.io/pairwise-comparison/pairwise-comparison.html
 
 The pairwise comparison method can also be used for choosing the best image or photo.
 
-https://evgeniy-khist.github.io/pairwise-comparison/image-pairwise-comparison.html
+[https://evgeniy-khist.github.io/pairwise-comparison/image-pairwise-comparison.html](https://evgeniy-khist.github.io/pairwise-comparison/image-pairwise-comparison.html)
 
 ![Image pairwise comparison](image-pairwise-comparison.gif)
 
@@ -55,6 +55,6 @@ Instead, prepare a set of requirements that the solution should satisfy,
 prioritize the requirements using pairwise comparison method, 
 and choose the solution that best meets the requirements.
 
-https://evgeniy-khist.github.io/pairwise-comparison/solution-comparison.html
+[https://evgeniy-khist.github.io/pairwise-comparison/solution-comparison.html](https://evgeniy-khist.github.io/pairwise-comparison/solution-comparison.html)
 
 ![Solution comparison](solution-comparison.gif)
