@@ -1,5 +1,8 @@
 # Pairwise Comparison Method
 
+> [!IMPORTANT]
+> This project is now part of ArtistAssistApp. See https://github.com/eugene-khyst/artistassistapp/blob/main/src/services/rating/rating.ts
+
 Pairwise comparison (or paired comparison) is a process of comparing entities in pairs to judge which of each entity is preferred.
 
 Sometimes it is hard to choose between multiple options.
